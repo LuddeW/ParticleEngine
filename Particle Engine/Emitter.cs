@@ -26,26 +26,23 @@ namespace Particle_Engine
         {
             Texture2D texture = textures[random.Next(textures.Count)];
             Vector2 position = EmitterLocation;
-            Vector2 velocity = new Vector2(
-                    1f * (float)(random.NextDouble() * 2 - 1),
-                    1f * (float)(random.NextDouble() * 2 - 1));
-            float angle = 0;
-            float angularVelocity = 0.1f * (float)(random.NextDouble() * 2 - 1);
-            int red = (byte) random.Next(40, 80);
-            int green = (byte)random.Next(170, 230);
-            int blue = (byte)random.Next(210, 255);
-            Color color = new Color(red, green, blue);
-                   
-            float size = (float)random.NextDouble();
+            // Vector2 velocity = new Vector2(1f * (float)(random.NextDouble() * 2 - 1), 1f * (float)(random.NextDouble() * 2 - 1));
+            Vector2 velocity = new Vector2((float)random.NextDouble(), -1f * (float)random.NextDouble());
+            //float angle = MathHelper.ToDegrees(3.14f);
+            //float angularVelocity = 5f;
             int ttl = 20 + random.Next(40);
-
+            int red = (byte) random.Next(45, 60);
+            int green = (byte)random.Next(200, 215);
+            int blue = (byte)random.Next(240, 255);
+            Color color = new Color(red, green, blue)* 0.1f;                   
+            float size = (float)random.NextDouble();
             float layerDepth = (float)random.NextDouble();
-            return new Particle(texture, position, velocity, angle, angularVelocity, color, size, ttl, layerDepth);
+            return new Particle(texture, position, velocity, 0f, 0f, color, 2f, ttl, layerDepth);
         }
 
         public void Update()
         {
-            int total = 10;
+            int total = 100;
 
             for (int i = 0; i < total; i++)
             {
