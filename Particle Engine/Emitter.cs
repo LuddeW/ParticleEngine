@@ -31,18 +31,19 @@ namespace Particle_Engine
             //float angle = MathHelper.ToDegrees(3.14f);
             //float angularVelocity = 5f;
             int ttl = 20 + random.Next(40);
+
             int red = (byte) random.Next(45, 60);
             int green = (byte)random.Next(200, 215);
             int blue = (byte)random.Next(240, 255);
-            Color color = new Color(red, green, blue)* 0.1f;                   
+            Color color = new Color(red, green, blue)* 0.05f;                   
             float size = (float)random.NextDouble();
             float layerDepth = (float)random.NextDouble();
-            return new Particle(texture, position, velocity, 0f, 0f, color, 2f, ttl, layerDepth);
+            return new Particle(texture, position, velocity, 0f, 0f, color, 3f, ttl, layerDepth);
         }
 
         public void Update()
         {
-            int total = 100;
+            int total = 20;
 
             for (int i = 0; i < total; i++)
             {
